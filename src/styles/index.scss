@@ -70,6 +70,9 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  margin-left: 775px;
+  margin-top: 300px;
+;
  
 }
 
@@ -78,8 +81,7 @@ ol, ul {
 }
 
 .game-board{
-    //margin-top: 200px;
-    //margin-left: 50%;
+   
      position: absolute;
     top:50%;
     left:50%;
@@ -88,4 +90,7 @@ ol, ul {
     margin: 0 auto;
 }
 
+
+      
+ 
    

@@ -75,8 +75,8 @@ export class Game extends React.Component {
 		return (
 			<div className="game">
 				<form>
-					<input></input>
-					<input></input>
+					<input type="text" className="player1"></input>
+					<input type="text" className="player2"></input>
 				</form>
 				<div className="game-board">
 					<Board />
