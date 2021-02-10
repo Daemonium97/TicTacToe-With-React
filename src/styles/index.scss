@@ -70,9 +70,9 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
-  margin-left: 775px;
-  margin-top: 300px;
-;
+  margin-left: 825px;
+  margin-top: 280px;
+
  
 }
 
@@ -88,6 +88,9 @@ ol, ul {
     transform: translate(-50%,-50%);
     display: flex;
     margin: 0 auto;
+}
+.label1 .label2 {
+    margin-right: 4px;
 }
 
 
