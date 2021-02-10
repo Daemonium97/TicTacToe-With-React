@@ -85,7 +85,7 @@ export class Game extends React.Component {
 		});
 	}
 	render() {
-		// renderiza el ultimo componente para mantener el historial, tambien decide el ganador y el donde esta todo el juego
+		// renderiza el ultimo componente para mantener el historial, tambien decide el ganador y en donde esta todo el juego
 		const history = this.state.history;
 		const current = history[this.state.stepNumber];
 		const winner = calculateWinner(current.squares);
@@ -102,7 +102,7 @@ export class Game extends React.Component {
 		if (winner) {
 			status = "Winner" + winner;
 		} else {
-			status = "Next player: " + (this.state.xISNext ? "X" : "O");
+			status = "Next player: " + (this.state.xISNext ? "X" : "O"); //lleva el orden del turno de los jugadores
 		}
 		return (
 			<div className="game">
@@ -135,7 +135,7 @@ function calculateWinner(squares) {
 		const [a, b, c] = lines[i];
 		if (
 			squares[a] &&
-			squares[a] === squares[b] &&
+			squares[a] === squares[b] && //si todos coinciden gana, sino pierde
 			squares[a] === squares[c]
 		) {
 			return squares[a];
