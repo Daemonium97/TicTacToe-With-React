@@ -146,10 +146,12 @@ function calculateWinner(squares) {
 
 Square.propTypes = {
 	value: PropTypes.number,
-	onClick: PropTypes.func
+	onClick: PropTypes.func,
+	squares: PropTypes.array
 };
 
 Board.propTypes = {
 	value: PropTypes.array,
-	onClick: PropTypes.func
+	onClick: PropTypes.func,
+	squares: PropTypes.array
 };
