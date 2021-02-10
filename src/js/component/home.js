@@ -150,6 +150,6 @@ Square.propTypes = {
 };
 
 Board.propTypes = {
-	value: PropTypes.arrayOf(PropTypes.number),
+	value: PropTypes.array,
 	onClick: PropTypes.func
 };
