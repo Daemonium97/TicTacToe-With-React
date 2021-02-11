@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 function Square(props) {
 	//funcion que recibe los click del usuario
+	console.log(props.value);
 	return (
 		<button className="square" onClick={props.onClick}>
 			{props.value}
@@ -62,7 +63,7 @@ export class Game extends React.Component {
 		//se dispara cuando hacemos click en un cuadro y el decide turno del jugador
 		const history = this.state.history.slice(0, this.state.stepNumber + 1);
 		const current = history[history.length - 1];
-		const squares = this.state.squares.slice();
+		const squares = current.square.slice();
 		if (calculateWinner(squares) || squares[i]) {
 			return;
 		}
@@ -70,7 +71,7 @@ export class Game extends React.Component {
 		this.setState({
 			history: history.concat([
 				{
-					squares: squares
+					square: squares
 				}
 			]),
 			stepNumber: history.length,
@@ -88,9 +89,10 @@ export class Game extends React.Component {
 		// renderiza el ultimo componente para mantener el historial, tambien decide el ganador y en donde esta todo el juego
 		const history = this.state.history;
 		const current = history[this.state.stepNumber];
-		const winner = calculateWinner(current.squares);
+		console.log(current);
+		const winner = calculateWinner(current.square);
 		const moves = history.map((step, move) => {
-			const desc = move ? "Go to move #" + move : "Go to game start";
+			const desc = move ? "Move #" + move : "Game start";
 			return (
 				<li key={move}>
 					<button onClick={() => this.jump(move)}>{desc}</button>
@@ -100,14 +102,17 @@ export class Game extends React.Component {
 
 		let status;
 		if (winner) {
-			status = "Winner" + winner;
+			status = "Winner " + winner;
 		} else {
 			status = "Next player: " + (this.state.xISNext ? "X" : "O"); //lleva el orden del turno de los jugadores
 		}
 		return (
 			<div className="game">
 				<div className="game-board">
-					<Board />
+					<Board
+						squares={current.square}
+						onClick={i => this.handleClick(i)}
+					/>
 				</div>
 				<div className="game-info">
 					<div>{status}</div>
